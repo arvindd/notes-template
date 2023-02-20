@@ -1,0 +1,12 @@
+#+title: Notes
+#+date: Feb 2023
+#+type: docs
+#+draft: false
+#+startup: indent
+#+startup: showall
+#+category: NOTES
+#+author: 
+#+export_file_name: exports/notes.pdf
+
+* Heading 1
+This is some content.

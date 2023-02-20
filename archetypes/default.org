@@ -1,0 +1,5 @@
+#+title: {{ replace .Name "-" " " | title }}
+#+date: {{ .Date | time.Format "Jan 2006" }}
+#+type: docs
+#+draft: true
+

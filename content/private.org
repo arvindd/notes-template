@@ -1,0 +1,17 @@
+#+title: Private Notes
+#+date: Feb 2023
+#+type: docs
+#+draft: true
+#+startup: indent
+#+startup: showall
+#+category: PRIVATE
+#+author: 
+#+export_file_name: exports/private.pdf
+
+* This is a private note
+Because "draft" is "true" above, this is a private note. To make it public, turn "draft" to "false".
+
+Private notes are never built when built with hugo, or deployed on to a public website. They can be accessed only from local machines, or from a repo in github directly.
+
+NOTE: If the repo in github is public, these notes can be seen by anybody too. If you really want a private note, make sure the github repo to which these notes are pushed is a private repo too.
+

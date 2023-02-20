@@ -1,0 +1,15 @@
+#+title: Home
+#+startup: indent
+#+startup: showall
+#+category: notes
+#+type: docs
+#+draft: false
+
+* Introduction
+This is the home page of your notes. You can add any starting notes explaining, for example, the organisation of your notes.
+
+* How to change this page?
+The contents of this page is in [[./][_index.org]], right in the root of your notes's "content" directory. To change what appears here, change that file.
+
+* Private and public notes
+You will see two example notes in this repo: [[./notes][notes.org]] (a public note) and [[./private][private.org]] (a private note). All notes with "draft" as "false" (such as this and notes.org) are public. Those with "draft" as "true" will be private notes.
