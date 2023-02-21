@@ -75,16 +75,7 @@
    - A github enterprise or a paid github pro/teams so that you can have [[https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages][github pages]] for private repo
 
 ** Hiding parts of a public note
-   An entire subsection of a note can be hid from the public note by tagging it with a "noexport" tag.
-
-   For example, the below contains a sub-section that is hidden from the public view, but still can be seen when logged into github repo.
-
-** Start of the hidden subsection
-
-** Hidden subsection                                               :noexport:
-These words (and the heading) is hidden from the public view, but still can be seen when logged into github!
-
-** End of hidden subsection
+   An entire subsection of a note can be hid from the public note by tagging it with a "noexport" tag. In emacs-org mode, tags can be added by using =C-c <tag name>=.
 
 
 
