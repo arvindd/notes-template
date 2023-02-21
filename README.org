@@ -79,12 +79,12 @@
 
    For example, the below contains a sub-section that is hidden from the public view, but still can be seen when logged into github repo.
 
-*** Start of the hidden subsection
+** Start of the hidden subsection
 
-*** Hidden subsection                                              :noexport:
- These words (and the heading) is hidden from the public view, but still can be seen when logged into github!
+** Hidden subsection                                               :noexport:
+These words (and the heading) is hidden from the public view, but still can be seen when logged into github!
 
-*** End of hidden subsection
+** End of hidden subsection
 
 
 
