@@ -1,0 +1,91 @@
+#+title: README
+#+startup: indent
+#+startup: showall
+#+category: notes
+#+type: docs
+#+draft: false
+
+* Introduction
+  This template is for creating org-mode notes system on your own local computer. Optionally, it also allows you to publicly share your notes on the internet via a [hugo](https://gohugo.io/)-generated static website.
+
+* How to set something similar to this for yourself?
+  If you plan to use emacs for all your notes, first of all, clone [[https://github.com/arvindd/.emacs.d][.emacd.d]] in your home directory. This sets up the basic settings for all the notes.
+
+  Now, use the "Use this template" button to first make a repository in your own github account, and clone that repo into to your local machine (eg: ~/notes).
+
+  Note that we do not need any installation of hugo and related software if we are only needing to work with the notes (read, change, add, etc.). Hugo is only needed for posting a public version of the notes.
+
+* Where are the notes?
+  In the notes repo that you cloned above, the actual notes are in the "content" in the root of your notes repo. All the notes in that directory are org-mode files, just as this file.
+
+  Every folder inside content (and in all sub-directories) there is an _index.org file - this is the index file for each directory. THe directories form sections, and each file is a note in that section.
+
+  Using org-mode makes it easy to manage notes with emacs. Of course, if you prefer to use markdown files, you could do so too - the choice is entirely yours. 
+
+* The .notes folder
+  The emacs settings you cloned above, however, does not assume a hugo site. This is to make sure that notes remain independent of hugo - and can be used even without hugo.
+
+  Emacs assumes all notes are in the ~/.notes folder - i.e., .notes folder in your home directory.
+
+  Therefore, in order to simply use emacs in the org-mode for all your notes, you need to create a symbolic link .notes that points to the notes/content folder above.
+
+  On Linux / WSL, from the home directory, this is done with:
+
+  #+begin_src
+  ln -s <path-to-notes>/content .notes
+  #+end_src
+
+  On Windows, from the home directory, this is done on powershell with:
+
+  #+begin_src 
+  cmd /c mklink /d <path-to-notes>/content .notes
+  #+end_src
+
+  On Windows, from the home directory, this is done on command prompt with:
+
+  #+begin_src 
+  mklink /d <path-to-notes>/content .notes
+  #+end_src
+
+* Installation of tools
+  As mentioned above, if our sole purpose is to maintain a local version of the notes, we do not need any of the tools - including hugo, go, git, etc. We need all these tools only for building a public version of the notes.
+
+  If you want to also check the version of notes locally using hugo-generated site, install all the tools now.
+
+  First, finish installation of hugo and its pre-requisites following [[https://notes.ramdoot.in/hugo][this guide]]. Since this notes uses [[https://www.docsy.dev/][docsy theme]], it also has another prerequisite - nodejs. Install all that following [[https://notes.ramdoot.in/nodejs][this guide]].
+
+  For building the hugo site for the notes, we also need additional pre-requisite npm packages. Install these too:
+
+  #+begin_src
+  npm install -D autoprefixer
+  npm install -D postcss-cli
+  npm install -D postcss
+  #+end_src
+
+* If you use emacs org-mode for your notes...
+** Public vs private notes
+   You can do this if you use emacs org-mode for your notes.
+  
+   When a new note file is created using emacs org-mode, on default, the file is created with a front-matter as "#+draft: true". With this value for draft, the file remains as a private note, and will be seen only when logged into your own notes repo in github.
+
+   To make the note as a public note, i.e., accessible using your hosting domain, make the front-matter as "#+draft: false" - and this becomes public.
+
+   Note that you need one of the following for having private notes:
+   - A FREE account in hosting providers such as [[https://www.netlify.com/][netlify]] for hosting your static website, but still able to keep your github repo private. Netlify can generate hugo sites automatically when you push your notes to your private repo in github.
+   - A github enterprise or a paid github pro/teams so that you can have [[https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages][github pages]] for private repo
+
+** Hiding parts of a public note
+   An entire subsection of a note can be hid from the public note by tagging it with a "noexport" tag.
+
+   For example, the below contains a sub-section that is hidden from the public view, but still can be seen when logged into github repo.
+
+*** Start of the hidden subsection
+
+*** Hidden subsection                                              :noexport:
+ These words (and the heading) is hidden from the public view, but still can be seen when logged into github!
+
+*** End of hidden subsection
+
+
+
+
