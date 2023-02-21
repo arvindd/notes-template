@@ -6,7 +6,7 @@
 #+draft: false
 
 * Introduction
-  This template is for creating org-mode notes system on your own local computer. Optionally, it also allows you to publicly share your notes on the internet via a [hugo](https://gohugo.io/)-generated static website.
+  This template is for creating org-mode notes system on your own local computer. Optionally, it also allows you to publicly share your notes on the internet via a [[https://gohugo.io/][hugo]]-generated static website.
 
 * How to set something similar to this for yourself?
   If you plan to use emacs for all your notes, first of all, clone [[https://github.com/arvindd/.emacs.d][.emacd.d]] in your home directory. This sets up the basic settings for all the notes.
