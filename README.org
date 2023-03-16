@@ -38,13 +38,13 @@
   On Windows, from the home directory, this is done on powershell with:
 
   #+begin_src 
-  cmd /c mklink /d <path-to-notes>/content .notes
+  cmd /c mklink /d .notes <path-to-notes>/content
   #+end_src
 
   On Windows, from the home directory, this is done on command prompt with:
 
   #+begin_src 
-  mklink /d <path-to-notes>/content .notes
+  mklink /d .notes <path-to-notes>/content
   #+end_src
 
 * Installation of tools
