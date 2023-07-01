@@ -20,7 +20,7 @@
 
   Every folder inside content (and in all sub-directories) there is an _index.org file - this is the index file for each directory. THe directories form sections, and each file is a note in that section.
 
-  Using org-mode makes it easy to manage notes with emacs. Of course, if you prefer to use markdown files, you could do so too - the choice is entirely yours. 
+  Using org-mode makes it easy to manage notes with emacs. Of course, if you prefer to use markdown files, you could do so too - the choice is entirely yours.
 
 * The .notes folder
   The emacs settings you cloned above, however, does not assume a hugo site. This is to make sure that notes remain independent of hugo - and can be used even without hugo.
@@ -37,13 +37,13 @@
 
   On Windows, from the home directory, this is done on powershell with:
 
-  #+begin_src 
+  #+begin_src
   cmd /c mklink /d .notes <path-to-notes>/content
   #+end_src
 
   On Windows, from the home directory, this is done on command prompt with:
 
-  #+begin_src 
+  #+begin_src
   mklink /d .notes <path-to-notes>/content
   #+end_src
 
@@ -65,7 +65,7 @@
 * If you use emacs org-mode for your notes...
 ** Public vs private notes
    You can do this if you use emacs org-mode for your notes.
-  
+
    When a new note file is created using emacs org-mode, on default, the file is created with a front-matter as "#+draft: true". With this value for draft, the file remains as a private note, and will be seen only when logged into your own notes repo in github.
 
    To make the note as a public note, i.e., accessible using your hosting domain, make the front-matter as "#+draft: false" - and this becomes public.
@@ -76,6 +76,53 @@
 
 ** Hiding parts of a public note
    An entire subsection of a note can be hid from the public note by tagging it with a "noexport" tag. In emacs-org mode, tags can be added by using =C-c <tag name>=.
+
+** Including simple images using emacs picture mode
+Of course, since you are using emacs org-mode, you could simply add an inline image using the usual image syntax for org-mode: ~[[link]]~.
+
+Other way to draw quick (but simple) images in emacs is by using the picture mode. For example, a simple explanation such as this could easily be done using picture mode:
+
+#+name: example ascii picture
+#+begin_src ditaa :file img/quad.png 
+
+                  Types of quadrilaterals
+
+                                             +-------------+
+   +----------------------+                  |             |
+   |                      |                  |             |
+   |      Rectangle       |                  |   Square    |
+   |                      |                  |             |
+   +----------------------+                  |             |
+                                             +-------------+
+
+#+end_src
+
+
+What you see above are some drawings done simply using normal ascii characters - and embedded in a source-code block (i.e., between ~#+begin_src~ and ~#+end_src~. When done so, hugo simply puts these in pre-formatted HTML blocks so that they will look exactly the way they look within an emacs. The same result could have also been achieved with example blocks with delimiters ~#+begin_example~ and ~#+end_example~.
+
+However, if you use hugo to plavce your notes in a publicly accessible location, it makes sense to actually have a picture drawn and exported as actual png file so that it looks natural when seen via a browser. Our friend to do that is via [[https://github.com/stathissideris/ditaa][ditaa]] - a small command line program that converts such ascii figures as above into real looking pictures. You will have to do it by embedding the block above using a source-code block as follows:
+
+#+begin_example
+#+begin_src ditaa :file img/quad.png :exports results
+
+   <put your ascii drawing here (emacs picture may help you for difficult drawings)
+
+#+end_src
+#+end_example
+
+What you see above is a ditaa source code block, with the file name specified as img/quad.png (this is where ditaa will create the png file when the above source code block is executed with ~C-c C-c~). The ~:exports results~ will make sure that the original ascii block is not shown on your webpage, and only the "results" of execution of the source code block (in this case, your png image created after ditaa is invoked using ~C-c C-c~) is shown. When executed, results appear as follows:
+
+#+begin_example
+#+RESULTS
+[[img/quad.png]]
+#+end_example
+
+One important thing that *you should do* is to change the link to the image in the ~#+RESULTS~ above to be an absolute link (i.e., prefix that with a ~/~ - so that it is accessible on the web. Non-absolute paths would be relative to the root of the notes folder - so might not be seen when rendered on your web. In this case, change the link to: ~[[/img/quad.png]]~ - note the ~/~ prefix.
+
+When done this way, the above picture will be shown on your results location as follows (note that you can also move your results anywhere in your notes by adding a ~#+name:~ to your source code block):
+
+#+RESULTS: example ascii picture
+[[/img/quad.png]]
 
 * Disallowing robots to crawl your site
 On default, public sites generated by hugo are crawled by search-engine bots like google or bing. In order to stop crawlers that honour robots.txt, create this file: =/layouts/robots.txt=. The file should contain this:
