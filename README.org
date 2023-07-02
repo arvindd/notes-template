@@ -83,7 +83,7 @@ Of course, since you are using emacs org-mode, you could simply add an inline im
 Other way to draw quick (but simple) images in emacs is by using the picture mode. For example, a simple explanation such as this could easily be done using picture mode:
 
 #+name: example ascii picture
-#+begin_src ditaa :file img/quad.png 
+#+begin_src ditaa :file img/quad.png :exports both
 
                   Types of quadrilaterals
 
