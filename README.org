@@ -103,11 +103,11 @@ What you see above are some drawings done simply using normal ascii characters -
 However, if you use hugo to plavce your notes in a publicly accessible location, it makes sense to actually have a picture drawn and exported as actual png file so that it looks natural when seen via a browser. Our friend to do that is via [[https://github.com/stathissideris/ditaa][ditaa]] - a small command line program that converts such ascii figures as above into real looking pictures. You will have to do it by embedding the block above using a source-code block as follows:
 
 #+begin_example
- #+begin_src ditaa :file img/quad.png :exports results
+#+​begin_src ditaa :file img/quad.png :exports results
 
-   <put your ascii drawing here (emacs picture may help you for difficult drawings)
+<put your ascii drawing here (emacs picture may help you for difficult drawings)
 
- #+end_src
+#+​end_src
 #+end_example
 
 What you see above is a ditaa source code block, with the file name specified as img/quad.png (this is where ditaa will create the png file when the above source code block is executed with ~C-c C-c~). The ~:exports results~ will make sure that the original ascii block is not shown on your webpage, and only the "results" of execution of the source code block (in this case, your png image created after ditaa is invoked using ~C-c C-c~) is shown. When executed, results appear as follows:
